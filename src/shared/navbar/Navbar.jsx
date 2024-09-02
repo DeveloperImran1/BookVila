@@ -1,15 +1,25 @@
 import { useState } from "react";
 import { IoReorderThree } from "react-icons/io5";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import swal from 'sweetalert';
 
 const Navbar = () => {
     const [show, setShow] = useState(false)
+    const { user, logOut } = useAuth();
+    const navigate = useNavigate();
+    const handleLogOut = () => {
+        logOut()
+        swal("Logout", "You have Login Out", "success");
+        return navigate("/signIn")
+    }
+    
     return (
         <div>
 
             <nav className="flex items-center justify-between bg-[#ffffff] py-4 text-black font-bold">
                 <div className="scale-100 cursor-pointer rounded-2xl  text-xl font-semibold text-white transition-all duration-200 hover:scale-110">
-                    <img src="https://i.ibb.co/hDVMs3d/logo-png.png" alt="logo" />
+                    <Link to="/"> <img src="https://i.ibb.co/hDVMs3d/logo-png.png" alt="logo" /></Link>
                 </div>
                 <div className="flex items-center justify-between gap-16">
                     <ul className="hidden md:flex items-center justify-between gap-7">
@@ -39,75 +49,37 @@ const Navbar = () => {
                     </ul>
                     <div onClick={() => setShow(!show)} className="flex items-center border-2 rounded-[32px] relative cursor-pointer">
                         <button className="rounded-full  transition-all duration-300 hover:scale-90">
-                            <img src="https://static.vecteezy.com/system/resources/previews/013/042/571/original/default-avatar-profile-icon-social-media-user-photo-in-flat-style-vector.jpg" alt="user" className="h-[40px] w-[40px] rounded-full " />
+                            <img src={`${user?.photoURL || 'https://static.vecteezy.com/system/resources/previews/013/042/571/original/default-avatar-profile-icon-social-media-user-photo-in-flat-style-vector.jpg'}`} alt="user" className="h-[40px] w-[40px] rounded-full " />
                         </button>
                         <IoReorderThree size={28}></IoReorderThree>
 
                         <div className={`${show ? 'right-0 top-[40px] visible' : 'right-0 top-[90px]  invisible'}  absolute  bg-bg-color rounded-2xl py-2 w-[150px] transition-all my-transition`}>
                             <ul>
-                                <NavLink><li className="w-full p-1 pl-3 rounded-md hover:bg-primary hover:text-white">Sign In</li></NavLink>
-                                <NavLink><li className="w-full p-1 pl-3 rounded-md hover:bg-primary hover:text-white">Sign Up</li></NavLink>
-                                <NavLink><li className="w-full p-1 pl-3 rounded-md hover:bg-primary hover:text-white">Log Out</li></NavLink>
-                                <NavLink><li className=" w-full p-1 pl-3 rounded-md hover:bg-primary hover:text-white">Dashboard</li></NavLink>
-                                <NavLink><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-primary hover:text-white">Home</li></NavLink>
-                                <NavLink><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-primary hover:text-white">Page</li></NavLink>
-                                <NavLink><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-primary hover:text-white">Products</li></NavLink>
-                                <NavLink><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-primary hover:text-white">Contuct</li></NavLink>
+                                {
+                                    user ? <>
+                                        <NavLink to="/dashboard"><li className=" w-full p-1 pl-3 rounded-md hover:bg-primary hover:text-white">Dashboard</li></NavLink>
+                                        <NavLink onClick={handleLogOut}><li className="w-full p-1 pl-3 rounded-md hover:bg-primary hover:text-white">Log Out</li></NavLink>
+                                        <NavLink to="/"><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-primary hover:text-white">Home</li></NavLink>
+                                        <NavLink><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-primary hover:text-white">Page</li></NavLink>
+                                        <NavLink><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-primary hover:text-white">Products</li></NavLink>
+                                        <NavLink><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-primary hover:text-white">Contuct</li></NavLink>
+
+                                    </> : <>
+                                        <NavLink to="/signIn"><li className="w-full p-1 pl-3 rounded-md hover:bg-primary hover:text-white">Sign In</li></NavLink>
+                                        <NavLink to="/signUp"><li className="w-full p-1 pl-3 rounded-md hover:bg-primary hover:text-white">Sign Up</li></NavLink>
+                                        <NavLink to="/"><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-primary hover:text-white">Home</li></NavLink>
+                                        <NavLink><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-primary hover:text-white">Page</li></NavLink>
+                                        <NavLink><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-primary hover:text-white">Products</li></NavLink>
+                                        <NavLink><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-primary hover:text-white">Contuct</li></NavLink>
+
+                                    </>
+                                }
                             </ul>
                         </div>
                     </div>
                 </div>
             </nav>
 
-            <section className="flex items-center justify-between bg-primary p-2 rounded-md">
-                <div className="flex items-center justify-between bg-white w-full md:w-[38%] rounded-l-full px-2">
-                    <div className="flex items-center justify-center gap-2">
-                        <p className="font-semibold text-[18px] ">All Category</p>
-                        <svg width="10.507812" height="6.003052" viewBox="0 0 10.5078 6.00305" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <desc>
-                                Created with Pixso.
-                            </desc>
-                            <defs />
-                            <path id="Vector" d="M0.75 0.75L5.25 5.25L9.75 0.75" stroke="#343A40" stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round" stroke-linecap="round" />
-                        </svg>
-                    </div>
-
-                    <input type="text" placeholder="Search Anything" className=" py-2 outline-none " />
-                </div>
-                <div className="hidden md:flex items-center  gap-2 bg-primary ">
-                    <svg width="13.750000" height="18.910156" viewBox="0 0 13.75 18.9102" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <desc>
-                            Created with Pixso.
-                        </desc>
-                        <defs />
-                        <path id="Symbol" d="M13.75 2.91L0 2.91L0 0L13.75 0L13.75 2.91ZM13.75 6.91L0 6.91L0 4L13.75 4L13.75 6.91ZM13.75 10.91L0 10.91L0 8L13.75 8L13.75 10.91ZM13.75 14.91L0 14.91L0 12L13.75 12L13.75 14.91ZM13.75 18.91L0 18.91L0 16L13.75 16L13.75 18.91Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd" />
-                    </svg>
-
-                    <p className="font-semibold text-[18px] text-white">free shipping over $199</p>
-                </div>
-                <div className="hidden md:flex  items-center gap-2 bg-primary">
-                    <svg width="13.750000" height="18.910156" viewBox="0 0 13.75 18.9102" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <desc>
-                            Created with Pixso.
-                        </desc>
-                        <defs />
-                        <path id="Symbol" d="M13.75 2.91L0 2.91L0 0L13.75 0L13.75 2.91ZM13.75 6.91L0 6.91L0 4L13.75 4L13.75 6.91ZM13.75 10.91L0 10.91L0 8L13.75 8L13.75 10.91ZM13.75 14.91L0 14.91L0 12L13.75 12L13.75 14.91ZM13.75 18.91L0 18.91L0 16L13.75 16L13.75 18.91Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd" />
-                    </svg>
-
-                    <p className="font-semibold text-[18px] text-white">30 days money back</p>
-                </div>
-                <div className="hidden md:flex  items-center gap-2 bg-primary">
-                    <svg width="13.750000" height="18.910156" viewBox="0 0 13.75 18.9102" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <desc>
-                            Created with Pixso.
-                        </desc>
-                        <defs />
-                        <path id="Symbol" d="M13.75 2.91L0 2.91L0 0L13.75 0L13.75 2.91ZM13.75 6.91L0 6.91L0 4L13.75 4L13.75 6.91ZM13.75 10.91L0 10.91L0 8L13.75 8L13.75 10.91ZM13.75 14.91L0 14.91L0 12L13.75 12L13.75 14.91ZM13.75 18.91L0 18.91L0 16L13.75 16L13.75 18.91Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd" />
-                    </svg>
-
-                    <p className="font-semibold text-[18px] text-white">100% secure payment</p>
-                </div>
-            </section>
 
         </div>
     );

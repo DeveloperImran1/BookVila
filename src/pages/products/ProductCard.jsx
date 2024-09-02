@@ -1,13 +1,17 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-const ProductCard = () => {
+const ProductCard = ({product}) => {
     const [userRating, setUserRating] = useState(3);
 
+    const {category, color, description, image, offer, price, title, totalAvailable, _id } = product;
+    console.log("single product", product)
     return (
         <>
-              <div className="rounded-md border-2 p-4 w-full space-y-3  ">
+         <Link to={`/product/${_id}`}>
+         <div className="rounded-md border-2 p-4 w-full space-y-3  ">
                 <div className=" flex justify-between items-between " >
-                    <p className="border border-[#f1352b] py-1 px-3 rounded-3xl">0% Installment</p>
+                    <p className="border border-[#f1352b] py-1 px-3 rounded-3xl">{category}</p>
                     <div className="border-2 rounded-full p-2 hover:scale-150 my-transition cursor-pointer ">
                         <svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.6717 1.71722C13.5151 2.435 13.9637 3.35016 14.0175 4.46271C14.0714 5.57526 13.7125 6.51733 12.9409 7.28894L7.746 12.6722C7.56655 12.8517 7.36019 12.9414 7.12692 12.9414C6.89364 12.9414 6.68728 12.8517 6.50784 12.6722L1.31295 7.28894C0.541345 6.51733 0.182458 5.57526 0.236291 4.46271C0.290124 3.35016 0.738733 2.435 1.58212 1.71722C2.31783 1.08917 3.16122 0.820007 4.11227 0.909729C5.08126 0.981506 5.9067 1.36731 6.58859 2.06714L7.12692 2.60547L7.66525 2.06714C8.34713 1.36731 9.1636 0.981506 10.1146 0.909729C11.0836 0.820007 11.936 1.08917 12.6717 1.71722Z" fill="black" className="" />
@@ -16,18 +20,17 @@ const ProductCard = () => {
                     </div>
                 </div>
                 <div className=" flex flex-col justify-center items-center ">
-                    <img src="https://i.ibb.co/x6jR8ny/Link-prod16-png.png" alt="product" className="w-[180px] h-[150px] rounded-md" />
+                    <img src= {`${image || 'https://i.ibb.co/x6jR8ny/Link-prod16-png.png'}`}  alt="product" className="w-[180px] h-[150px] rounded-md" />
 
                 </div>
                 
 
                 <div className="flex items-center gap-2 ">
-                    <span className="rounded-full bg-[#f1352b] px-3 py-1 text-xs text-white">15% Off</span>
+                    <span className="rounded-full bg-[#f1352b] px-3 py-1 text-xs text-white">{offer}% Off</span>
                     <span className="rounded-full bg-[#4b3ec4] px-3 py-1 text-xs text-white">Best Seller</span>
 
                 </div>
-                <h1 className="text-[15px] font-semibold">Gigabyte PC Gaming Case,
-                    Core i7, 32GB Ram</h1>
+                <h1 className="text-[15px] font-semibold">{title}</h1>
 
                 <div className="flex space-x-1">
                     {[1, 2, 3, 4, 5].map((star) => (
@@ -40,8 +43,9 @@ const ProductCard = () => {
                     <span>{`(08)`}</span>
                 </div>
 
-                <h1 className="text-[17px] font-semibold">$610.00</h1>
+                <h1 className="text-[17px] font-semibold">${price}</h1>
             </div>
+         </Link>
         </>
     );
 };
