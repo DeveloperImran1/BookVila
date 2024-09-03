@@ -7,7 +7,7 @@ import useAxiosPublic from '../../../hooks/useAxiosPublic';
 const AddProducts = () => {
     const axiosPublic = useAxiosPublic();
 
-    const [photoURL, setPhotoURL] = useState("https://static.vecteezy.com/system/resources/previews/013/042/571/original/default-avatar-profile-icon-social-media-user-photo-in-flat-style-vector.jpg")
+    const [photoURL, setPhotoURL] = useState("")
     const { register, signInGoogle, loading, setLoading, handleUpdateProfile } = useAuth()
 
 
@@ -39,6 +39,7 @@ const AddProducts = () => {
             setLoading(true)
             const data = await imageUpload(photo)
             setPhotoURL(data)
+            console.log(data)
             setLoading(false)
         }
         catch (err) {
@@ -46,7 +47,7 @@ const AddProducts = () => {
             setLoading(false)
         }
 
-        const productData = { title, price, totalAvailable, description, category, color, photoURL, offer }
+        const productData = { title, price, totalAvailable, description, category, color, image: photoURL, offer }
         axiosPublic.post('/product', productData)
             .then(data => {
                 console.log(data)

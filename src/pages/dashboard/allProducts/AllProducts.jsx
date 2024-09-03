@@ -14,7 +14,7 @@ const AllProducts = () => {
     const { isPending, refetch, data: products = [] } = useQuery({
         queryKey: ['allProducts'],
         queryFn: async () => {
-            const res = await fetch("http://localhost:5000/products")
+            const res = await fetch("https://wom-job-task-server.vercel.app/products")
             return res.json()
         }
     })
@@ -32,7 +32,7 @@ const AllProducts = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    axios.delete(`http://localhost:5000/product/${id}`)
+                    axios.delete(`https://wom-job-task-server.vercel.app/product/${id}`)
                         .then(data => {
                             refetch()
                             if (data?.deletedCount) {
