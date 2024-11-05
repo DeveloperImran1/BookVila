@@ -7,27 +7,19 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Pagination } from 'swiper/modules';
+import { FaSearch } from "react-icons/fa";
 
 
 const Baner = () => {
     return (
         <>
-            <section className="flex items-center justify-between bg-primary p-2 rounded-md">
-                <div className="flex items-center justify-between bg-white w-full md:w-[38%] rounded-l-full px-2">
-                    <div className="flex items-center justify-center gap-2">
-                        <p className="font-semibold text-[18px] ">All Category</p>
-                        <svg width="10.507812" height="6.003052" viewBox="0 0 10.5078 6.00305" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <desc>
-                                Created with Pixso.
-                            </desc>
-                            <defs />
-                            <path id="Vector" d="M0.75 0.75L5.25 5.25L9.75 0.75" stroke="#343A40" stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round" stroke-linecap="round" />
-                        </svg>
-                    </div>
+            <section className="hidden md:flex items-center justify-between bg-[#00bffe] p-2 rounded-md">
+                <span className="relative   ">
+                    <input type="text" placeholder="Search Anything" className="  bg-white  md:w-[200px] lg:w-[300px]   px-2 border-none focus:outline-none focus:border-none bg-transparent rounded-full md:rounded-l-full " />
+                    <FaSearch size={22} className='text-gray-500 absolute right-3 top-[20%]'></FaSearch>
+                </span>
 
-                    <input type="text" placeholder="Search Anything" className=" py-2 outline-none " />
-                </div>
-                <div className="hidden md:flex items-center  gap-2 bg-primary ">
+                <div className="hidden md:flex items-center  gap-2 bg-[#00bffe] ">
                     <svg width="13.750000" height="18.910156" viewBox="0 0 13.75 18.9102" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <desc>
                             Created with Pixso.
@@ -38,7 +30,7 @@ const Baner = () => {
 
                     <p className="font-semibold text-[18px] text-white">free shipping over $199</p>
                 </div>
-                <div className="hidden md:flex  items-center gap-2 bg-primary">
+                <div className="hidden md:flex  items-center gap-2 bg-[#00bffe]">
                     <svg width="13.750000" height="18.910156" viewBox="0 0 13.75 18.9102" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <desc>
                             Created with Pixso.
@@ -49,7 +41,7 @@ const Baner = () => {
 
                     <p className="font-semibold text-[18px] text-white">30 days money back</p>
                 </div>
-                <div className="hidden md:flex  items-center gap-2 bg-primary">
+                <div className="hidden md:flex  items-center gap-2 bg-[#00bffe]">
                     <svg width="13.750000" height="18.910156" viewBox="0 0 13.75 18.9102" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <desc>
                             Created with Pixso.
@@ -65,7 +57,17 @@ const Baner = () => {
 
 
             <div className='flex  gap-[10px] '>
-                <Swiper pagination={true} modules={[Pagination]} className="mySwiper w-[65%] ">
+
+                <div className="md:w-[30%] lg:w-[20%] hidden md:flex bg-[url('https://i.ibb.co/JcgWmN3/banner1-png.png')] bg-cover  pl-[50px] pt-[50px] pb-[50px] rounded-md  justify-between items-start">
+                    <div>
+                        <h1 className="text-black font-bold text-[24px] w-[150px] ">redmi note 12
+                            Pro+ 5g</h1>
+                        <h1 className="text-[#7a7b7c] font-semibold  ">Rise to the challenge</h1>
+
+                    </div>
+                </div>
+
+                <Swiper pagination={true} modules={[Pagination]} className="mySwiper w-full md:w-[70%] lg:w-[80%] ">
                     <SwiperSlide className="bg-[url('https://i.ibb.co/GVN2nLN/slider3-png.png')] bg-center bg-cover pl-[80px] pt-[80px] pb-[80px] rounded-md  ">
                         <h1 className="text-white font-extrabold text-[34px] ">Noise Cancelling</h1>
                         <h1 className="text-white font-semibold text-[24px] ">Headphone</h1>
@@ -216,16 +218,6 @@ const Baner = () => {
                     </SwiperSlide>
 
                 </Swiper>
-
-                <div className="w-[35%] hidden md:flex bg-[url('https://i.ibb.co/JcgWmN3/banner1-png.png')] bg-cover  pl-[50px] pt-[50px] pb-[50px] rounded-md  justify-between items-start">
-                    <div>
-                        <h1 className="text-black font-bold text-[24px] w-[150px] ">redmi note 12
-                            Pro+ 5g</h1>
-                        <h1 className="text-[#7a7b7c] font-semibold  ">Rise to the challenge</h1>
-
-                    </div>
-                    <button className='font-semibold mt-[40px] text-[19px] px-4 py-2 rounded-md bg-black text-white mr-4 mb-4'>Buy Now</button>
-                </div>
             </div>
 
         </>
