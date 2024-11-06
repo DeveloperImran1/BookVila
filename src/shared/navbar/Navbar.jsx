@@ -367,7 +367,7 @@ const Navbar = () => {
 
             {/* Banner section  */}
 
-            <>
+            {/* <>
                 <section className="hidden md:flex container mt-3 items-center justify-between bg-[#00bffe] p-2 rounded-md">
                     <span className="relative   ">
                         <input type="text" placeholder="Search Anything" className="  bg-white  md:w-[200px] lg:w-[300px]   px-2 border-none focus:outline-none focus:border-none bg-transparent rounded-full md:rounded-l-full " />
@@ -619,7 +619,7 @@ const Navbar = () => {
 
 
 
-            </>
+            </> */}
 
         </div>
     );
