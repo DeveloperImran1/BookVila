@@ -80,9 +80,9 @@ const Products = () => {
     // }
 
     return (
-        <div className="mt-[100px]">
+        <div className="mt-[100px] container mx-auto">
             <SectionTitle title={"Our Products"} description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deleniti perferendis dolor architecto error molestias inventore. Quae mollitia id libero!"></SectionTitle>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+            <div className="grid sm:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                 {
                     products?.map((product, index) => { return <ProductCard key={index} product={product}></ProductCard> })
                 }

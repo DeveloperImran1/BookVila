@@ -17,10 +17,11 @@ const config = {
     },
     extend: {
       colors: {
-        primary: "#1aba1a",
-        secondary: "",
-        "text-color": "",
-        "bg-color": "#ebeef6"
+        primary: "#00bffe",
+        secondary: "#ff4d6d",
+        "text-gray": "#ebeef6",
+        "bg-gray": "#ebeef6",
+        "bg-blue": "#00bffe",
       }
     },
   },
