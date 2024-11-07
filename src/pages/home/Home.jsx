@@ -1,10 +1,10 @@
-// import Baner from "../../components/baner/Baner";
+import Baner from "../../components/baner/Baner";
 import Products from "../products/Products";
 
 const Home = () => {
     return (
         <div>
-            {/* <Baner></Baner> */}
+            <Baner></Baner>
             <Products></Products>
         </div>
     );
