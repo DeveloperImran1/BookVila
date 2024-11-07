@@ -1,4 +1,5 @@
 import Baner from "../../components/baner/Baner";
+// import FeaturedBooks from "../../components/FeaturedBooks";
 import Products from "../products/Products";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
         <div>
             <Baner></Baner>
             <Products></Products>
+            {/* <FeaturedBooks/> */}
         </div>
     );
 };

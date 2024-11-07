@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../shared/sectionTitle/SectionTitle";
 import ProductCard from "./ProductCard";
+import FeaturedBooks from "../../components/FeaturedBooks";
 
 const Products = () => {
 
@@ -87,6 +88,8 @@ const Products = () => {
                     products?.map((product, index) => { return <ProductCard key={index} product={product}></ProductCard> })
                 }
             </div>
+             {/* Pass products to FeaturedBooks */}
+             <FeaturedBooks products={products} />
         </div>
     );
 };
