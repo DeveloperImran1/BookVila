@@ -4,18 +4,10 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import swal from 'sweetalert';
 
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-
-// import required modules
-import { Pagination } from 'swiper/modules';
-import { FaSearch } from "react-icons/fa";
 import { Button, Drawer, DrawerAction, DrawerContent, Skeleton, SkeletonLine } from 'keep-react'
-import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 import { FiLogIn } from 'react-icons/fi';
@@ -25,7 +17,6 @@ const Navbar = () => {
     const [show, setShow] = useState(false)
     const { user, logOut } = useAuth();
     const navigate = useNavigate();
-    const [selectCategory, setSelectCategory] = useState(null)
     const [subject, setSubject] = useState(false)
     const [books, setBooks] = useState(false)
     const [bookWriters, setBookWriters] = useState(false)
@@ -146,7 +137,7 @@ const Navbar = () => {
 
 
             <div className="bg-[#ffffff]">
-                <nav className="flex items-center justify-between container p-0 py-2 text-black font-bold ">
+                <nav className="flex items-center justify-between container p-0 py-2 text-black font-semibold ">
                     <div className=" cursor-pointer rounded-2xl flex items-center text-xl font-semibold max-w-[50%]">
 
                         <Drawer className="text-black border-2">
@@ -174,8 +165,8 @@ const Navbar = () => {
                                         {/* Main Subject Link */}
                                         <Link
                                             onClick={() => setBooks(!books)}
-                                            className={`${books ? 'bg-[#00bffe] text-white' : ''
-                                                } py-3 px-3 font-semibold w-full hover:bg-[#00bffe] hover:text-white rounded-md flex justify-between items-center`}
+                                            className={`${books ? 'bg-bg-blue text-white' : ''
+                                                } py-3 px-3 font-semibold w-full hover:bg-bg-blue hover:text-white rounded-md flex justify-between items-center`}
                                         >
                                             <p>Books</p>
                                             {books ? <IoIosArrowDown /> : <IoIosArrowUp />}
@@ -187,7 +178,7 @@ const Navbar = () => {
                                             {boiShomogro?.map((sub, index) => (
                                                 <Link
                                                     key={index}
-                                                    className="py-2 px-3 font-semibold w-[90%] hover:bg-[#00bffe] hover:text-white rounded-md flex justify-between items-center"
+                                                    className="py-2 px-3 font-semibold w-[90%] hover:bg-bg-blue hover:text-white rounded-md flex justify-between items-center"
                                                 >
                                                     <p>{sub}</p>
                                                 </Link>
@@ -202,8 +193,8 @@ const Navbar = () => {
 
                                         <Link
                                             onClick={() => setSubject(!subject)}
-                                            className={`${subject ? 'bg-[#00bffe] text-white' : ''
-                                                } py-3 px-3 font-semibold w-full hover:bg-[#00bffe] hover:text-white rounded-md flex justify-between items-center`}
+                                            className={`${subject ? 'bg-bg-blue text-white' : ''
+                                                } py-3 px-3 font-semibold w-full hover:bg-bg-blue hover:text-white rounded-md flex justify-between items-center`}
                                         >
                                             <p>Subjects</p>
                                             {subject ? <IoIosArrowDown /> : <IoIosArrowUp />}
@@ -215,7 +206,7 @@ const Navbar = () => {
                                             {subjects?.map((sub, index) => (
                                                 <Link
                                                     key={index}
-                                                    className="py-2 px-3 font-semibold w-[90%] hover:bg-[#00bffe] hover:text-white rounded-md flex justify-between items-center"
+                                                    className="py-2 px-3 font-semibold w-[90%] hover:bg-bg-blue hover:text-white rounded-md flex justify-between items-center"
                                                 >
                                                     <p>{sub}</p>
                                                 </Link>
@@ -230,8 +221,8 @@ const Navbar = () => {
 
                                         <Link
                                             onClick={() => setBookWriters(!bookWriters)}
-                                            className={`${bookWriters ? 'bg-[#00bffe] text-white' : ''
-                                                } py-3 px-3 font-semibold w-full hover:bg-[#00bffe] hover:text-white rounded-md flex justify-between items-center`}
+                                            className={`${bookWriters ? 'bg-bg-blue text-white' : ''
+                                                } py-3 px-3 font-semibold w-full hover:bg-bg-blue hover:text-white rounded-md flex justify-between items-center`}
                                         >
                                             <p>Writers</p>
                                             {bookWriters ? <IoIosArrowDown /> : <IoIosArrowUp />}
@@ -243,7 +234,7 @@ const Navbar = () => {
                                             {writers?.map((sub, index) => (
                                                 <Link
                                                     key={index}
-                                                    className="py-2 px-3 font-semibold w-[90%] hover:bg-[#00bffe] hover:text-white rounded-md flex justify-between items-center"
+                                                    className="py-2 px-3 font-semibold w-[90%] hover:bg-bg-blue hover:text-white rounded-md flex justify-between items-center"
                                                 >
                                                     <p>{sub}</p>
                                                 </Link>
@@ -258,8 +249,8 @@ const Navbar = () => {
                                         {/* Main Subject Link */}
                                         <Link
                                             onClick={() => setBookPublications(!bookPublications)}
-                                            className={`${bookPublications ? 'bg-[#00bffe] text-white' : ''
-                                                } py-3 px-3 font-semibold w-full hover:bg-[#00bffe] hover:text-white rounded-md flex justify-between items-center`}
+                                            className={`${bookPublications ? 'bg-bg-blue text-white' : ''
+                                                } py-3 px-3 font-semibold w-full hover:bg-bg-blue hover:text-white rounded-md flex justify-between items-center`}
                                         >
                                             <p>Publications</p>
                                             {bookPublications ? <IoIosArrowDown /> : <IoIosArrowUp />}
@@ -271,7 +262,7 @@ const Navbar = () => {
                                             {publications?.map((sub, index) => (
                                                 <Link
                                                     key={index}
-                                                    className="py-2 px-3 font-semibold w-[90%] hover:bg-[#00bffe] hover:text-white rounded-md flex justify-between items-center"
+                                                    className="py-2 px-3 font-semibold w-[90%] hover:bg-bg-blue hover:text-white rounded-md flex justify-between items-center"
                                                 >
                                                     <p>{sub}</p>
                                                 </Link>
@@ -286,17 +277,17 @@ const Navbar = () => {
 
                                 {/* bottom section of sidebar */}
                                 <div className="flex flex-col">
-                                <hr className="border-[1px] my-[18px] w-full" />
+                                    <hr className="border-[1px] my-[18px] w-full" />
 
-                                    <Link className={` py-3 px-3 font-semibold w-full hover:bg-[#00bffe] hover:text-white rounded-md flex justify-between items-center`}
+                                    <Link className={` py-3 px-3 font-semibold w-full hover:bg-bg-blue hover:text-white rounded-md flex justify-between items-center`}
                                     >
                                         <p>Contact Us</p>
-                                   <AiOutlinePhone></AiOutlinePhone>
+                                        <AiOutlinePhone></AiOutlinePhone>
                                     </Link>
-                                    <Link className={` py-3 px-3 font-semibold w-full hover:bg-[#00bffe] hover:text-white rounded-md flex justify-between items-center`}
+                                    <Link className={` py-3 px-3 font-semibold w-full hover:bg-bg-blue hover:text-white rounded-md flex justify-between items-center`}
                                     >
                                         <p>Login</p>
-                                   <FiLogIn></FiLogIn>
+                                        <FiLogIn></FiLogIn>
                                     </Link>
                                 </div>
                             </DrawerContent>
@@ -308,16 +299,16 @@ const Navbar = () => {
                     <div className="flex items-center justify-between gap-16">
                         <ul className="hidden md:flex items-center justify-between gap-7">
                             <li className="group flex  cursor-pointer flex-col">
-                                Home <span className="mt-[2px] h-[3px] w-[0px] rounded-full bg-[#00bffe] transition-all duration-300 group-hover:w-full"></span>
+                                Home <span className="mt-[2px] h-[3px] w-[0px] rounded-full bg-bg-blue transition-all duration-300 group-hover:w-full"></span>
                             </li>
                             <li className="group flex  cursor-pointer flex-col">
-                                Pages <span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-[#00bffe] transition-all duration-300 group-hover:w-full"></span>
+                                Pages <span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-bg-blue transition-all duration-300 group-hover:w-full"></span>
                             </li>
                             <li className="group flex  cursor-pointer flex-col">
-                                Products <span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-[#00bffe] transition-all duration-300 group-hover:w-full"></span>
+                                Products <span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-bg-blue transition-all duration-300 group-hover:w-full"></span>
                             </li>
                             <li className="group flex  cursor-pointer flex-col">
-                                Contact  <span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-[#00bffe] transition-all duration-300 group-hover:w-full"></span>
+                                Contact  <span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-bg-blue transition-all duration-300 group-hover:w-full"></span>
                             </li>
 
 
@@ -333,27 +324,28 @@ const Navbar = () => {
                             </li>
                         </ul>
                         <div onClick={() => setShow(!show)} className="flex items-center border-2 rounded-[32px] relative cursor-pointer">
-                            <button className="rounded-full  transition-all duration-300 hover:scale-90">
+                            <button className="rounded-full transition-all duration-300 hover:scale-90">
                                 <img src={`${user?.photoURL || 'https://static.vecteezy.com/system/resources/previews/013/042/571/original/default-avatar-profile-icon-social-media-user-photo-in-flat-style-vector.jpg'}`} alt="user" className="h-[50px] w-[50px] rounded-full " />
                             </button>
-                            <div className={`${show ? 'right-0 top-[40px] visible' : 'right-0 top-[90px]  invisible'}  absolute z-50  bg-bg-color rounded-2xl py-2 w-[150px] transition-all my-transition`}>
+                            <div className={`${show ? 'right-0 top-[40px] visible' : 'right-0 top-[90px]  invisible'}  absolute z-50  bg-white rounded-2xl py-2 px-4 w-[190px] transition-all my-transition`}>
                                 <ul>
+                                    <NavLink to="/my-profile"><li className=" w-full p-1 pl-3 rounded-md hover:bg-bg-blue hover:text-white ">My Profile</li></NavLink>
+                                   
+                                    <NavLink to="/my-order"><li className="hidden md:block w-full p-1 pl-3 rounded-md hover:bg-bg-blue hover:text-white ">My Order</li></NavLink>
+                                    <NavLink to="/wishlist"><li className="hidden md:block w-full p-1 pl-3 rounded-md hover:bg-bg-blue hover:text-white ">Wishlist</li></NavLink>
+                                    <NavLink to="/"><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-bg-blue hover:text-white">Home</li></NavLink>
+                                    <NavLink><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-bg-blue hover:text-white">Page</li></NavLink>
+                                    <NavLink><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-bg-blue hover:text-white">Products</li></NavLink>
+                                    <NavLink><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-bg-blue hover:text-white">Contuct</li></NavLink>
+
                                     {
                                         user ? <>
-                                            <NavLink to="/dashboard"><li className=" w-full p-1 pl-3 rounded-md hover:bg-[#00bffe] hover:text-white">Dashboard</li></NavLink>
-                                            <NavLink onClick={handleLogOut}><li className="w-full p-1 pl-3 rounded-md hover:bg-[#00bffe] hover:text-white">Log Out</li></NavLink>
-                                            <NavLink to="/"><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-[#00bffe] hover:text-white">Home</li></NavLink>
-                                            <NavLink><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-[#00bffe] hover:text-white">Page</li></NavLink>
-                                            <NavLink><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-[#00bffe] hover:text-white">Products</li></NavLink>
-                                            <NavLink><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-[#00bffe] hover:text-white">Contuct</li></NavLink>
+
+                                            <NavLink onClick={handleLogOut}><li className="w-full p-1 pl-3 rounded-md hover:bg-bg-blue hover:text-white">Log Out</li></NavLink>
+
 
                                         </> : <>
-                                            <NavLink to="/signIn"><li className="w-full p-1 pl-3 rounded-md hover:bg-[#00bffe] hover:text-white">Sign In</li></NavLink>
-                                            <NavLink to="/signUp"><li className="w-full p-1 pl-3 rounded-md hover:bg-[#00bffe] hover:text-white">Sign Up</li></NavLink>
-                                            <NavLink to="/"><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-[#00bffe] hover:text-white">Home</li></NavLink>
-                                            <NavLink><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-[#00bffe] hover:text-white">Page</li></NavLink>
-                                            <NavLink><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-[#00bffe] hover:text-white">Products</li></NavLink>
-                                            <NavLink><li className="block md:hidden w-full p-1 pl-3 rounded-md hover:bg-[#00bffe] hover:text-white">Contuct</li></NavLink>
+                                            <NavLink to="/signIn"><li className="w-full p-1 pl-3 rounded-md hover:bg-bg-blue hover:text-white">Sign In</li></NavLink>
 
                                         </>
                                     }
@@ -365,261 +357,7 @@ const Navbar = () => {
 
             </div>
 
-            {/* Banner section  */}
 
-            <>
-                <section className="hidden md:flex container mt-3 items-center justify-between bg-[#00bffe] p-2 rounded-md">
-                    <span className="relative   ">
-                        <input type="text" placeholder="Search Anything" className="  bg-white  md:w-[200px] lg:w-[300px]   px-2 border-none focus:outline-none focus:border-none bg-transparent rounded-full md:rounded-l-full " />
-                        <FaSearch size={22} className='text-gray-500 absolute right-3 top-[20%]'></FaSearch>
-                    </span>
-
-                    <div className="hidden md:flex items-center  gap-2 bg-[#00bffe] ">
-                        <svg width="13.750000" height="18.910156" viewBox="0 0 13.75 18.9102" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <desc>
-                                Created with Pixso.
-                            </desc>
-                            <defs />
-                            <path id="Symbol" d="M13.75 2.91L0 2.91L0 0L13.75 0L13.75 2.91ZM13.75 6.91L0 6.91L0 4L13.75 4L13.75 6.91ZM13.75 10.91L0 10.91L0 8L13.75 8L13.75 10.91ZM13.75 14.91L0 14.91L0 12L13.75 12L13.75 14.91ZM13.75 18.91L0 18.91L0 16L13.75 16L13.75 18.91Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd" />
-                        </svg>
-
-                        <p className="font-semibold text-[18px] text-white">free shipping over $199</p>
-                    </div>
-                    <div className="hidden md:flex  items-center gap-2 bg-[#00bffe]">
-                        <svg width="13.750000" height="18.910156" viewBox="0 0 13.75 18.9102" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <desc>
-                                Created with Pixso.
-                            </desc>
-                            <defs />
-                            <path id="Symbol" d="M13.75 2.91L0 2.91L0 0L13.75 0L13.75 2.91ZM13.75 6.91L0 6.91L0 4L13.75 4L13.75 6.91ZM13.75 10.91L0 10.91L0 8L13.75 8L13.75 10.91ZM13.75 14.91L0 14.91L0 12L13.75 12L13.75 14.91ZM13.75 18.91L0 18.91L0 16L13.75 16L13.75 18.91Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd" />
-                        </svg>
-
-                        <p className="font-semibold text-[18px] text-white">30 days money back</p>
-                    </div>
-                    <div className="hidden md:flex  items-center gap-2 bg-[#00bffe]">
-                        <svg width="13.750000" height="18.910156" viewBox="0 0 13.75 18.9102" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <desc>
-                                Created with Pixso.
-                            </desc>
-                            <defs />
-                            <path id="Symbol" d="M13.75 2.91L0 2.91L0 0L13.75 0L13.75 2.91ZM13.75 6.91L0 6.91L0 4L13.75 4L13.75 6.91ZM13.75 10.91L0 10.91L0 8L13.75 8L13.75 10.91ZM13.75 14.91L0 14.91L0 12L13.75 12L13.75 14.91ZM13.75 18.91L0 18.91L0 16L13.75 16L13.75 18.91Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd" />
-                        </svg>
-
-                        <p className="font-semibold text-[18px] text-white">100% secure payment</p>
-                    </div>
-                </section>
-
-
-
-                <div className='flex relative gap-[10px] container p-0'>
-
-                    <div className="md:w-[30%] lg:w-[20%] hidden md:flex  bg-white pt-[10px] pb-[50px] rounded-md  justify-between items-start  border-2">
-                        <ul onMouseLeave={() => setSelectCategory(null)} className="w-full ">
-                            <Link onMouseOver={() => setSelectCategory("books")} className="py-3 px-3 font-semibold w-full hover:bg-[#00bffe] hover:text-white rounded-md flex justify-between items-center">
-                                <p>Books</p>
-                                <MdOutlineArrowForwardIos></MdOutlineArrowForwardIos>
-                            </Link>
-                            <Link onMouseOver={() => setSelectCategory("subjects")} className="py-3 px-3 font-semibold w-full hover:bg-[#00bffe] hover:text-white rounded-md flex justify-between items-center">
-                                <p>Subjects</p>
-                                <MdOutlineArrowForwardIos></MdOutlineArrowForwardIos>
-                            </Link>
-                            <Link onMouseOver={() => setSelectCategory("writers")} className="py-3 px-3 font-semibold w-full hover:bg-[#00bffe] hover:text-white rounded-md flex justify-between items-center">
-                                <p>Writer</p>
-                                <MdOutlineArrowForwardIos></MdOutlineArrowForwardIos>
-                            </Link>
-                            <Link onMouseOver={() => setSelectCategory("publications")} className="py-3 px-3 font-semibold w-full hover:bg-[#00bffe] hover:text-white rounded-md flex justify-between items-center">
-                                <p>Publications</p>
-                                <MdOutlineArrowForwardIos></MdOutlineArrowForwardIos>
-                            </Link>
-
-                            {
-                                selectCategory && <div className="bg-white absolute right-0 top-0 z-50 w-full md:w-[70%] lg:w-[80%]">
-                                    <ul className="w-full px-6 py-4 flex flex-col flex-wrap h-[430px] ">
-                                        {
-                                            selectCategory === "books" ?
-                                                boiShomogro?.map((book, index) => <Link key={index} className="py-3 px-3 font-normal w-[250px] hover:text-[#00bffe] hover:underline">
-                                                    {book}
-                                                </Link>) :
-                                                selectCategory === "subjects" ? subjects?.map((book, index) => <Link key={index} className="py-3 px-3 font-normal w-[250px] hover:text-[#00bffe] hover:underline">
-                                                    {book}
-                                                </Link>) :
-                                                    selectCategory === "writers" ? writers?.map((book, index) => <Link key={index} className="py-3 px-3 font-normal w-[250px] hover:text-[#00bffe] hover:underline">
-                                                        {book}
-                                                    </Link>) :
-                                                        selectCategory === "publications" ? publications?.map((book, index) => <Link key={index} className="py-3 px-3 font-normal w-[250px] hover:text-[#00bffe] hover:underline">
-                                                            {book}
-                                                        </Link>) : ""
-                                        }
-
-                                    </ul>
-                                </div>
-                            }
-
-
-
-                        </ul>
-                    </div>
-
-
-                    <Swiper pagination={true} modules={[Pagination]} className="mySwiper w-full md:w-[70%] lg:w-[80%] ">
-                        <SwiperSlide className="bg-[url('https://i.ibb.co/GVN2nLN/slider3-png.png')] bg-center bg-cover pl-[80px] pt-[80px] pb-[80px] rounded-md  ">
-                            <h1 className="text-white font-extrabold text-[34px] ">Noise Cancelling</h1>
-                            <h1 className="text-white font-semibold text-[24px] ">Headphone</h1>
-
-                            <div className='flex items-center gap-3 mt-[20px] '>
-                                <svg width="10.312500" height="14.182617" viewBox="0 0 10.3125 14.1826" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <desc>
-                                        Created with Pixso.
-                                    </desc>
-                                    <defs />
-                                    <path id="Symbol" d="M10.31 2.18L-0.01 2.18L-0.01 0L10.31 0L10.31 2.18ZM10.31 5.18L-0.01 5.18L-0.01 3L10.31 3L10.31 5.18ZM10.31 8.18L-0.01 8.18L-0.01 6L10.31 6L10.31 8.18ZM10.31 11.18L-0.01 11.18L-0.01 9L10.31 9L10.31 11.18ZM10.31 14.18L-0.01 14.18L-0.01 12L10.31 12L10.31 14.18Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd" />
-                                </svg>
-                                <p className='font-semibold text-[17px] text-white'>Boso Year Head Phone</p>
-                            </div>
-                            <div className='flex items-center gap-3 '>
-                                <svg width="10.312500" height="14.182617" viewBox="0 0 10.3125 14.1826" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <desc>
-                                        Created with Pixso.
-                                    </desc>
-                                    <defs />
-                                    <path id="Symbol" d="M10.31 2.18L-0.01 2.18L-0.01 0L10.31 0L10.31 2.18ZM10.31 5.18L-0.01 5.18L-0.01 3L10.31 3L10.31 5.18ZM10.31 8.18L-0.01 8.18L-0.01 6L10.31 6L10.31 8.18ZM10.31 11.18L-0.01 11.18L-0.01 9L10.31 9L10.31 11.18ZM10.31 14.18L-0.01 14.18L-0.01 12L10.31 12L10.31 14.18Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd" />
-                                </svg>
-                                <p className='font-semibold text-[17px] text-white'>Wifi, Voice Assistant,</p>
-                            </div>
-                            <div className='flex items-center gap-3 '>
-                                <svg width="10.312500" height="14.182617" viewBox="0 0 10.3125 14.1826" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <desc>
-                                        Created with Pixso.
-                                    </desc>
-                                    <defs />
-                                    <path id="Symbol" d="M10.31 2.18L-0.01 2.18L-0.01 0L10.31 0L10.31 2.18ZM10.31 5.18L-0.01 5.18L-0.01 3L10.31 3L10.31 5.18ZM10.31 8.18L-0.01 8.18L-0.01 6L10.31 6L10.31 8.18ZM10.31 11.18L-0.01 11.18L-0.01 9L10.31 9L10.31 11.18ZM10.31 14.18L-0.01 14.18L-0.01 12L10.31 12L10.31 14.18Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd" />
-                                </svg>
-                                <p className='font-semibold text-[17px] text-white'>Boso Year Head Phone</p>
-                            </div>
-
-                            <button className='font-semibold mt-[40px] text-[19px] px-4 py-2 rounded-md bg-white'>Buy Now</button>
-                        </SwiperSlide>
-                        <SwiperSlide className="bg-[url('https://i.ibb.co/GVN2nLN/slider3-png.png')] bg-cover bg-center pl-[80px] pt-[80px] pb-[80px] rounded-md ">
-                            <h1 className="text-white font-extrabold text-[34px] ">Noise Cancelling</h1>
-                            <h1 className="text-white font-semibold text-[24px] ">Headphone</h1>
-
-                            <div className='flex items-center gap-3 mt-[20px] '>
-                                <svg width="10.312500" height="14.182617" viewBox="0 0 10.3125 14.1826" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <desc>
-                                        Created with Pixso.
-                                    </desc>
-                                    <defs />
-                                    <path id="Symbol" d="M10.31 2.18L-0.01 2.18L-0.01 0L10.31 0L10.31 2.18ZM10.31 5.18L-0.01 5.18L-0.01 3L10.31 3L10.31 5.18ZM10.31 8.18L-0.01 8.18L-0.01 6L10.31 6L10.31 8.18ZM10.31 11.18L-0.01 11.18L-0.01 9L10.31 9L10.31 11.18ZM10.31 14.18L-0.01 14.18L-0.01 12L10.31 12L10.31 14.18Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd" />
-                                </svg>
-                                <p className='font-semibold text-[17px] text-white'>Boso Year Head Phone</p>
-                            </div>
-                            <div className='flex items-center gap-3 '>
-                                <svg width="10.312500" height="14.182617" viewBox="0 0 10.3125 14.1826" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <desc>
-                                        Created with Pixso.
-                                    </desc>
-                                    <defs />
-                                    <path id="Symbol" d="M10.31 2.18L-0.01 2.18L-0.01 0L10.31 0L10.31 2.18ZM10.31 5.18L-0.01 5.18L-0.01 3L10.31 3L10.31 5.18ZM10.31 8.18L-0.01 8.18L-0.01 6L10.31 6L10.31 8.18ZM10.31 11.18L-0.01 11.18L-0.01 9L10.31 9L10.31 11.18ZM10.31 14.18L-0.01 14.18L-0.01 12L10.31 12L10.31 14.18Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd" />
-                                </svg>
-                                <p className='font-semibold text-[17px] text-white'>Wifi, Voice Assistant,</p>
-                            </div>
-                            <div className='flex items-center gap-3 '>
-                                <svg width="10.312500" height="14.182617" viewBox="0 0 10.3125 14.1826" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <desc>
-                                        Created with Pixso.
-                                    </desc>
-                                    <defs />
-                                    <path id="Symbol" d="M10.31 2.18L-0.01 2.18L-0.01 0L10.31 0L10.31 2.18ZM10.31 5.18L-0.01 5.18L-0.01 3L10.31 3L10.31 5.18ZM10.31 8.18L-0.01 8.18L-0.01 6L10.31 6L10.31 8.18ZM10.31 11.18L-0.01 11.18L-0.01 9L10.31 9L10.31 11.18ZM10.31 14.18L-0.01 14.18L-0.01 12L10.31 12L10.31 14.18Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd" />
-                                </svg>
-                                <p className='font-semibold text-[17px] text-white'>Boso Year Head Phone</p>
-                            </div>
-
-                            <button className='font-semibold mt-[40px] text-[19px] px-4 py-2 rounded-md bg-white'>Buy Now</button>
-                        </SwiperSlide>
-                        <SwiperSlide className="bg-[url('https://i.ibb.co/GVN2nLN/slider3-png.png')] bg-center bg-cover pl-[80px] pt-[80px] pb-[80px] rounded-md ">
-                            <h1 className="text-white font-extrabold text-[34px] ">Noise Cancelling</h1>
-                            <h1 className="text-white font-semibold text-[24px] ">Headphone</h1>
-
-                            <div className='flex items-center gap-3 mt-[20px] '>
-                                <svg width="10.312500" height="14.182617" viewBox="0 0 10.3125 14.1826" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <desc>
-                                        Created with Pixso.
-                                    </desc>
-                                    <defs />
-                                    <path id="Symbol" d="M10.31 2.18L-0.01 2.18L-0.01 0L10.31 0L10.31 2.18ZM10.31 5.18L-0.01 5.18L-0.01 3L10.31 3L10.31 5.18ZM10.31 8.18L-0.01 8.18L-0.01 6L10.31 6L10.31 8.18ZM10.31 11.18L-0.01 11.18L-0.01 9L10.31 9L10.31 11.18ZM10.31 14.18L-0.01 14.18L-0.01 12L10.31 12L10.31 14.18Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd" />
-                                </svg>
-                                <p className='font-semibold text-[17px] text-white'>Boso Year Head Phone</p>
-                            </div>
-                            <div className='flex items-center gap-3 '>
-                                <svg width="10.312500" height="14.182617" viewBox="0 0 10.3125 14.1826" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <desc>
-                                        Created with Pixso.
-                                    </desc>
-                                    <defs />
-                                    <path id="Symbol" d="M10.31 2.18L-0.01 2.18L-0.01 0L10.31 0L10.31 2.18ZM10.31 5.18L-0.01 5.18L-0.01 3L10.31 3L10.31 5.18ZM10.31 8.18L-0.01 8.18L-0.01 6L10.31 6L10.31 8.18ZM10.31 11.18L-0.01 11.18L-0.01 9L10.31 9L10.31 11.18ZM10.31 14.18L-0.01 14.18L-0.01 12L10.31 12L10.31 14.18Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd" />
-                                </svg>
-                                <p className='font-semibold text-[17px] text-white'>Wifi, Voice Assistant,</p>
-                            </div>
-                            <div className='flex items-center gap-3 '>
-                                <svg width="10.312500" height="14.182617" viewBox="0 0 10.3125 14.1826" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <desc>
-                                        Created with Pixso.
-                                    </desc>
-                                    <defs />
-                                    <path id="Symbol" d="M10.31 2.18L-0.01 2.18L-0.01 0L10.31 0L10.31 2.18ZM10.31 5.18L-0.01 5.18L-0.01 3L10.31 3L10.31 5.18ZM10.31 8.18L-0.01 8.18L-0.01 6L10.31 6L10.31 8.18ZM10.31 11.18L-0.01 11.18L-0.01 9L10.31 9L10.31 11.18ZM10.31 14.18L-0.01 14.18L-0.01 12L10.31 12L10.31 14.18Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd" />
-                                </svg>
-                                <p className='font-semibold text-[17px] text-white'>Boso Year Head Phone</p>
-                            </div>
-
-                            <button className='font-semibold mt-[40px] text-[19px] px-4 py-2 rounded-md bg-white'>Buy Now</button>
-                        </SwiperSlide>
-                        <SwiperSlide className="bg-[url('https://i.ibb.co/GVN2nLN/slider3-png.png')] bg-cover bg-center pl-[80px] pt-[80px] pb-[80px] rounded-md ">
-                            <h1 className="text-white font-extrabold text-[34px] ">Noise Cancelling</h1>
-                            <h1 className="text-white font-semibold text-[24px] ">Headphone</h1>
-
-                            <div className='flex items-center gap-3 mt-[20px] '>
-                                <svg width="10.312500" height="14.182617" viewBox="0 0 10.3125 14.1826" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <desc>
-                                        Created with Pixso.
-                                    </desc>
-                                    <defs />
-                                    <path id="Symbol" d="M10.31 2.18L-0.01 2.18L-0.01 0L10.31 0L10.31 2.18ZM10.31 5.18L-0.01 5.18L-0.01 3L10.31 3L10.31 5.18ZM10.31 8.18L-0.01 8.18L-0.01 6L10.31 6L10.31 8.18ZM10.31 11.18L-0.01 11.18L-0.01 9L10.31 9L10.31 11.18ZM10.31 14.18L-0.01 14.18L-0.01 12L10.31 12L10.31 14.18Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd" />
-                                </svg>
-                                <p className='font-semibold text-[17px] text-white'>Boso Year Head Phone</p>
-                            </div>
-                            <div className='flex items-center gap-3 '>
-                                <svg width="10.312500" height="14.182617" viewBox="0 0 10.3125 14.1826" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <desc>
-                                        Created with Pixso.
-                                    </desc>
-                                    <defs />
-                                    <path id="Symbol" d="M10.31 2.18L-0.01 2.18L-0.01 0L10.31 0L10.31 2.18ZM10.31 5.18L-0.01 5.18L-0.01 3L10.31 3L10.31 5.18ZM10.31 8.18L-0.01 8.18L-0.01 6L10.31 6L10.31 8.18ZM10.31 11.18L-0.01 11.18L-0.01 9L10.31 9L10.31 11.18ZM10.31 14.18L-0.01 14.18L-0.01 12L10.31 12L10.31 14.18Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd" />
-                                </svg>
-                                <p className='font-semibold text-[17px] text-white'>Wifi, Voice Assistant,</p>
-                            </div>
-                            <div className='flex items-center gap-3 '>
-                                <svg width="10.312500" height="14.182617" viewBox="0 0 10.3125 14.1826" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <desc>
-                                        Created with Pixso.
-                                    </desc>
-                                    <defs />
-                                    <path id="Symbol" d="M10.31 2.18L-0.01 2.18L-0.01 0L10.31 0L10.31 2.18ZM10.31 5.18L-0.01 5.18L-0.01 3L10.31 3L10.31 5.18ZM10.31 8.18L-0.01 8.18L-0.01 6L10.31 6L10.31 8.18ZM10.31 11.18L-0.01 11.18L-0.01 9L10.31 9L10.31 11.18ZM10.31 14.18L-0.01 14.18L-0.01 12L10.31 12L10.31 14.18Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd" />
-                                </svg>
-                                <p className='font-semibold text-[17px] text-white'>Boso Year Head Phone</p>
-                            </div>
-
-                            <button className='font-semibold mt-[40px] text-[19px] px-4 py-2 rounded-md bg-white'>Buy Now</button>
-                        </SwiperSlide>
-
-                    </Swiper>
-                </div>
-
-
-
-
-
-
-            </>
 
         </div>
     );
