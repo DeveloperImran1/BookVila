@@ -8,7 +8,7 @@ import AddProducts from "../pages/dashboard/addProducts/AddProducts";
 import AllProducts from "../pages/dashboard/allProducts/AllProducts";
 import DashboardContainer from "../pages/dashboard/dashboardHome/DashboardContainer";
 import DashboardCharts from "../pages/dashboard/dashboardHome/DashboardCharts";
-import ProductDetails from "../pages/productDetails/ProductDetails";
+import ProductDetails from "../pages/productDetails/ProductDetails"
 
 const router = createBrowserRouter([
     {
@@ -27,10 +27,14 @@ const router = createBrowserRouter([
             path: "/signUp",
             element: <SignUp></SignUp>
         },
+        // {
+        //     path: "/product/:id",
+        //     element: <ProductDetails></ProductDetails>
+        // },
         {
-            path: "/product/:id",
-            element: <ProductDetails></ProductDetails>
-        },
+          path: "/prodtls",
+          element: <ProductDetails></ProductDetails>
+      },
       ]
     },
     {
