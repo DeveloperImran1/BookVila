@@ -48,6 +48,9 @@ const FeaturedBooks = ({ products }) => {
           <SwiperSlide key={product._id}>
             <Link to={`/product/${product._id}`}>
               <div className="rounded-md border-2 p-4 w-full space-y-3 relative bg-white h-[400px]">
+              <div className="clit-element absolute top-[-12px] left-0 z-50">
+                        <p className="-rotate-[50deg] text-white top-3 left-1 font-semibold absolute">New</p>
+                    </div>
                 <div className="hover:scale-110 my-transition cursor-pointer flex flex-col justify-center items-center">
                   <img
                     src={
@@ -105,10 +108,10 @@ const FeaturedBooks = ({ products }) => {
      {/* arrow left */}
 <button
   onClick={prevSlider}
-  className="absolute top-1/2 left-3 z-50 flex justify-center items-center bg-white rounded-full w-8 h-8 md:w-8 md:h-8"
+  className="absolute top-1/2 left-3 z-50 flex justify-center items-center hover:bg-[#f2b00a] bg-slate-200 rounded-full w-8 h-8 md:w-8 md:h-8"
 >
   <svg
-    className="icon h-6 w-6 fill-black/50 md:h-6 md:w-6"
+    className="icon h-6 w-6 fill-black md:h-6 md:w-6"
     viewBox="0 0 1024 1024"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -119,10 +122,10 @@ const FeaturedBooks = ({ products }) => {
 {/* arrow right */}
 <button
   onClick={nextSlider}
-  className="absolute top-1/2 right-3 z-50 flex justify-center items-center bg-white rounded-full w-8 h-8 md:w-8 md:h-8"
+  className="absolute top-1/2 right-3 z-50 flex justify-center items-center hover:bg-[#f2b00a] bg-slate-200 rounded-full w-8 h-8 md:w-8 md:h-8"
 >
   <svg
-    className="icon h-6 w-6 fill-black/50 md:h-6 md:w-6 "
+    className="icon h-6 w-6 fill-black  md:h-6 md:w-6 "
     viewBox="0 0 1024 1024"
     xmlns="http://www.w3.org/2000/svg"
     transform="rotate(180)"
