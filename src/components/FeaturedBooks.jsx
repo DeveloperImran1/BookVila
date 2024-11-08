@@ -21,7 +21,7 @@ const FeaturedBooks = ({ products }) => {
   };
 
   return (
-    <div className="p-8 bg-white relative">
+    <div className="p-8 bg-white relative my-8">
       <div className="flex justify-between mb-6 font-semibold">
         <h1 className="text-2xl text-gray-600">Featured Books</h1>
         <h1 className="text-[#f2b00a] underline">See more</h1>

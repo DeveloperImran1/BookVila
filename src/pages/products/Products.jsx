@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../shared/sectionTitle/SectionTitle";
 import ProductCard from "./ProductCard";
 import FeaturedBooks from "../../components/FeaturedBooks";
+import RecentlyBooks from "../../components/RecentlyBooks";
 
 const Products = () => {
 
@@ -90,6 +91,8 @@ const Products = () => {
             </div>
              {/* Pass products to FeaturedBooks */}
              <FeaturedBooks products={products} />
+             {/* Pass products to RecentlyBooks */}
+             <RecentlyBooks products={products} />
         </div>
     );
 };
