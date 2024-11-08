@@ -9,6 +9,7 @@ import AllProducts from "../pages/dashboard/allProducts/AllProducts";
 import DashboardContainer from "../pages/dashboard/dashboardHome/DashboardContainer";
 import DashboardCharts from "../pages/dashboard/dashboardHome/DashboardCharts";
 import ProductDetails from "../pages/productDetails/ProductDetails"
+import ForTesting from "../pages/ForTesting/ForTesting";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
           path: "/prodtls",
           element: <ProductDetails></ProductDetails>
       },
+      {
+        path: "/forTesting",
+        element: <ForTesting></ForTesting>
+    },
       ]
     },
     {
