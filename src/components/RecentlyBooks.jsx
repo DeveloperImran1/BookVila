@@ -26,8 +26,11 @@ const RecentlyBooks = ({ products }) => {
             <div className="p-8 bg-white relative">
       <div className="flex justify-between mb-6 font-semibold">
         <h1 className="text-2xl text-gray-600">Recently Added Books</h1>
-        <h1 className="text-[#f2b00a] underline">See more</h1>
-      </div>
+        {products && products.length > 0 && (
+              <Link to={`/product/${products[0]._id}`}>
+                <h1 className="text-[#f2b00a] underline">See more</h1>
+              </Link>
+            )}      </div>
 
       {/* Swiper for carousel functionality */}
       <Swiper

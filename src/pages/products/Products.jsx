@@ -3,6 +3,7 @@ import SectionTitle from "../../shared/sectionTitle/SectionTitle";
 import ProductCard from "./ProductCard";
 import FeaturedBooks from "../../components/FeaturedBooks";
 import RecentlyBooks from "../../components/RecentlyBooks";
+import BudgetFriendlyBooks from "../../components/BudgetFriendlyBooks";
 
 const Products = () => {
 
@@ -93,6 +94,8 @@ const Products = () => {
              <FeaturedBooks products={products} />
              {/* Pass products to RecentlyBooks */}
              <RecentlyBooks products={products} />
+             {/* Pass products to BudgetFriendlyBooks */}
+             <BudgetFriendlyBooks products={products} />
         </div>
     );
 };
